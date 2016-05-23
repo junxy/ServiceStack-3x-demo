@@ -1,4 +1,7 @@
-﻿using ServiceStack.WebHost.Endpoints;
+﻿using ServiceStack.Common;
+using ServiceStack.Common.Web;
+using ServiceStack.ServiceHost;
+using ServiceStack.WebHost.Endpoints;
 using ServiceStack3x_01.Services;
 using System;
 
@@ -15,6 +18,19 @@ namespace ServiceStack3x_01
             {
                 //register any dependencies your services use, e.g:
                 //container.Register<ICacheClient>(new MemoryCacheClient());
+
+                //Set JSON web services to return idiomatic JSON camelCase properties
+                ServiceStack.Text.JsConfig.EmitCamelCaseNames = true;
+                //Change the default ServiceStack configuration
+                Feature disableFeatures = Feature.Jsv | Feature.Soap | Feature.Xml | Feature.Csv;
+                SetConfig(new EndpointHostConfig
+                {
+                    EnableFeatures = Feature.All.Remove(disableFeatures), //all formats except of JSV and SOAP
+                    DebugMode = true, //Show StackTraces in service responses during development
+                    WriteErrorsToResponse = false, //Disable exception handling
+                    DefaultContentType = ContentType.Json, //Change default content type
+                    AllowJsonpRequests = true //Enable JSONP requests
+                });
             }
         }
 
