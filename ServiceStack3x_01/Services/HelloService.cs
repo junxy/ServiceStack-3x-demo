@@ -1,4 +1,5 @@
-﻿using ServiceStack.ServiceInterface;
+﻿using ServiceStack.Common.Web;
+using ServiceStack.ServiceInterface;
 using ServiceStack3x_01.Biz;
 using ServiceStack3x_01.RequestDTO;
 using ServiceStack3x_01.ResponseDTO;
@@ -18,7 +19,9 @@ namespace ServiceStack3x_01.Services
         {
             if (request.Name.Contains("ex"))
             {
-                throw new ServiceResponseException("error 123");
+                //                throw new ServiceResponseException("error 123");
+
+                throw HttpError.Conflict("error 222");
             }
 
             //            return new HelloResponse { Result = $"Hello, {request.Name}" };

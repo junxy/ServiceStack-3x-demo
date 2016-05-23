@@ -1,4 +1,5 @@
 ﻿using Funq;
+using ServiceStack.Common.Web;
 using ServiceStack.ServiceInterface;
 using ServiceStack.ServiceInterface.Testing;
 using ServiceStack.Text;
@@ -52,7 +53,7 @@ namespace api.tests.Services
             var service = _container.Resolve<HelloService>();
             service.SetResolver(new BasicResolver(_container));
 
-            Assert.Throws<ServiceResponseException>(() =>
+            Assert.Throws<HttpError>(() =>
             {
                 const string name = "Tomex";
                 var result = service.Any(new ServiceStack3x_01.RequestDTO.Hello()
