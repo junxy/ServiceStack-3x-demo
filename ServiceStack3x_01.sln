@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServiceStack3x_01", "ServiceStack3x_01\ServiceStack3x_01.csproj", "{30B2A33B-3483-4E4F-8BCF-0B2FA6531F60}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "api", "ServiceStack3x_01\api.csproj", "{30B2A33B-3483-4E4F-8BCF-0B2FA6531F60}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
