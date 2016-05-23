@@ -14,7 +14,7 @@ namespace ServiceStack3x_01.Services
             _helloBiz = helloBiz;
         }
 
-        public object Any(Hello request)
+        public HelloResponse Any(Hello request)
         {
             if (request.Name.Contains("ex"))
             {
